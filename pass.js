@@ -1,4 +1,5 @@
 const log = console.log;
+console.log(`Liram Put Resk`);
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
