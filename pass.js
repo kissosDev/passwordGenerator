@@ -11,32 +11,25 @@ function getRandomInt(max) {
 
 let asciPassPossibilities = [];
 let asciiRanges = [
-  [33, 47],
-  [48, 57],
   [65, 90],
   [97, 122],
+  [48, 57],
+  [33, 47],
 ];
 function addPosibilitiesToArray() {
   let rangeItem = 0;
   let element = asciiRanges[rangeItem];
+  console.log(asciiRanges[rangeItem][0]);
   for (let prop in passwordFeatures) {
-    console.log(asciPassPossibilities);
-    console.log(passwordFeatures[prop]);
-    console.log(prop);
-
     if (passwordFeatures[prop]) {
       for (
         let i = asciiRanges[rangeItem][0];
         i < asciiRanges[rangeItem][1];
         i++
       ) {
-        // console.log(element[0]);
-        console.log(i);
-        console.log(rangeItem);
         asciPassPossibilities.push(i);
       }
       rangeItem++;
-      console.log(rangeItem);
     } else {
       rangeItem++;
       continue;
@@ -52,6 +45,10 @@ function getPasswordChar() {
 }
 
 let passwordLength = 20;
+
+function initiateAsciPassPossibilitiesArray() {
+  asciPassPossibilities = [];
+}
 
 // function getFullPassword() {
 //     for (let i = 0; i < passwordFeatures.length; i++) {
@@ -102,13 +99,11 @@ let passwordLength = 20;
 
 const passwordFeatures = {
   // length: 20,
-  includeLower: true,
   includeUpper: true,
+  includeLower: true,
   includeNumber: true,
   includeSymbol: true,
 };
-
-addPosibilitiesToArray();
 
 /*
 cost symbols = [];
@@ -161,9 +156,12 @@ lengthEl.addEventListener("change", function updateLength(e) {
 
 generateEl.addEventListener("click", function getFullPassword(e) {
   let password = "";
+  addPosibilitiesToArray();
+  console.log(asciPassPossibilities);
   for (let i = 0; i < passwordLength; i++) {
     password += getPasswordChar();
   }
 
   resultEl.innerHTML = password;
+  initiateAsciPassPossibilitiesArray();
 });
