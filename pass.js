@@ -45,7 +45,6 @@ function getPasswordChar() {
 }
 
 let passwordLength = 20;
-
 function initiateAsciPassPossibilitiesArray() {
   asciPassPossibilities = [];
 }
